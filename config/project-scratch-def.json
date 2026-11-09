@@ -1,0 +1,8 @@
+{
+  "orgName": "Motor de SLA e Escalonamento",
+  "edition": "Developer",
+  "features": ["ServiceCloud"],
+  "settings": {
+    "lightningExperienceSettings": { "enableS1DesktopEnabled": true }
+  }
+}
