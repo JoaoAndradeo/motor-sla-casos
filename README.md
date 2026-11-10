@@ -2,6 +2,17 @@
 
 Controle de prazo de atendimento por prioridade no Service Cloud. Cada caso recebe o SLA da sua prioridade, a plataforma acompanha os marcos (primeira resposta e resolução) e o escalonamento abre um registro e uma tarefa para o dono do caso quando um marco vence.
 
+## Por que importa
+
+Prazo sem controle vira promessa quebrada: o cliente espera, e ninguém percebe o atraso até ele reclamar. O motor torna o prazo visível por prioridade e age sozinho quando um marco vence.
+
+## Ganho
+
+- Prazo padronizado por prioridade, sem depender da memória de cada atendente.
+- Escalonamento automático com tarefa para o dono do caso, em vez de descobrir os atrasos em relatório depois.
+- Histórico em `Escalonamento_SLA__c`: dá para medir quantas vezes um marco venceu, e em qual prioridade.
+- Mudar um prazo é configuração no Entitlement Process, não reescrita de código.
+
 ## Como funciona
 
 1. O atendente define `Prioridade_SLA__c` no caso (Alta, Média ou Baixa).
