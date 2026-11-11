@@ -1,0 +1,19 @@
+.marco {
+    border-left: 4px solid var(--slds-g-color-neutral-base-80, #c9c9c9);
+}
+
+.marco_success {
+    border-left-color: var(--slds-g-color-success-base-50, #2e844a);
+}
+
+.marco_error {
+    border-left-color: var(--slds-g-color-error-base-40, #ba0517);
+}
+
+.marco_inverse {
+    border-left-color: var(--slds-g-color-neutral-base-50, #747474);
+}
+
+.marco-nome {
+    font-weight: 600;
+}

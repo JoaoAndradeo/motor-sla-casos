@@ -1,0 +1,62 @@
+<template>
+    <lightning-card title="SLA do caso" icon-name="standard:timeslot">
+        <template lwc:if={temViolacao}>
+            <span slot="actions" class="slds-badge slds-theme_error resumo-violacao">{resumoViolacao}</span>
+        </template>
+
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template lwc:if={isBusy}>
+                <lightning-spinner alternative-text="Carregando" size="small"></lightning-spinner>
+            </template>
+
+            <template lwc:if={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                    <span class="error-message">{errorMessage}</span>
+                </div>
+            </template>
+
+            <template lwc:if={temMarcos}>
+                <template for:each={marcos} for:item="marco">
+                    <div key={marco.key} class={marco.classe}>
+                        <div class="slds-grid slds-grid_vertical-align-center">
+                            <lightning-icon
+                                icon-name={marco.icone}
+                                size="small"
+                                variant={marco.variante}
+                                class="slds-m-right_small"
+                            ></lightning-icon>
+                            <div class="slds-col slds-grow">
+                                <p class="slds-text-heading_small marco-nome">{marco.rotulo}</p>
+                                <p class="slds-text-body_small slds-text-color_weak">
+                                    Prazo:
+                                    <lightning-formatted-date-time
+                                        value={marco.prazo}
+                                        year="numeric"
+                                        month="2-digit"
+                                        day="2-digit"
+                                        hour="2-digit"
+                                        minute="2-digit"
+                                    ></lightning-formatted-date-time>
+                                </p>
+                            </div>
+                            <lightning-badge label={marco.situacao} class="marco-situacao"></lightning-badge>
+                        </div>
+                    </div>
+                </template>
+            </template>
+
+            <template lwc:if={mostrarVincular}>
+                <p class="slds-text-color_weak slds-m-bottom_small sem-sla">
+                    Este caso ainda não tem SLA. O prazo é definido pela prioridade informada no caso.
+                </p>
+                <lightning-button
+                    variant="brand"
+                    label="Vincular SLA ao caso"
+                    onclick={vincular}
+                    disabled={isWorking}
+                    class="botao-vincular"
+                ></lightning-button>
+            </template>
+        </div>
+    </lightning-card>
+</template>
